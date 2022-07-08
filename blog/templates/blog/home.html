@@ -1,0 +1,27 @@
+{%extends 'blog/base.html'%}
+   
+    {%block content%}
+    
+    {%for posts in posts%}
+
+
+<hr>
+
+    <article class="media content-section">
+        <img class="rounded-circle article-img"  src="{{posts.authour.profile.image.url}}" alt="">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{posts.authour}}</a>
+                <small class="text-muted" >{{posts.date_posted}}</small>
+
+            </div>
+            <h2> <a class="article-title" href="{% url 'blog-article' posts.pk %}">{{posts.title}}</a> </h2>
+            <p class="article-content" >{{posts.content}}</p>
+
+
+
+        </div>
+
+    </article>
+    {%endfor%}
+    {%endblock content%}

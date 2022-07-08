@@ -1,0 +1,32 @@
+{%extends 'blog/base.html'%}
+   
+    {%block content%}
+    
+    
+
+
+<hr>
+
+    <article class="media content-section">
+        <img class="rounded-circle article-img"  src="{{posts.authour.profile.image.url}}" alt="">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{posts.authour}}</a>
+                <small class="text-muted" >{{posts.date_posted}}</small>
+              {% if posts.authour == user%}  
+           <div>    <a class="btn btn-success" href="{%url 'blog-update' posts.pk%}">Edit</a> 
+               <a class="btn btn-danger" href="{%url 'blog-delete' posts.pk%}">Delete</a> 
+</div>
+              {%endif%}
+
+            </div>
+            <h2> <a class="article-title" href="#">{{posts.title}}</a> </h2>
+            <hr>
+            <p class="article-content" >{{posts.content}}</p>
+
+        </div>
+        <a class="btn btn-warning" href="{%url 'blog-home'%}">Back</a>
+
+    </article>
+    
+    {%endblock content%}
