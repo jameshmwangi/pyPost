@@ -1,12 +1,6 @@
 body {
-  /* background: linear-gradient(to bottom right,#002f4b, #dc4225); */
-  /* color: #333333;  */
-  background-color: rgb(
-    56,
-    56,
-    56
-  ); /* background: linear-gradient(to bottom right,#002f4b,#dc4225); */
-  /*margin-top: 5rem;*/
+    
+  background-color: rgb(56,56,56); 
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -27,7 +21,7 @@ ul {
 }
 
 .bg-steel {
-  /* background-color: #1a1a1a; */
+  
   background: linear-gradient(270deg, rgb(49, 0, 33) 0%, rgb(46, 0, 119) 100%);
 }
 
@@ -84,11 +78,7 @@ a .article-title:hover {
   text-decoration: none;
 }
 
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
+
 
 .account-img {
   height: 125px;
@@ -132,15 +122,21 @@ a .article-title:hover {
   margin: auto;
   text-align: center;
   border-radius: 30px;
+  
+
 }
 #profile-h1 {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-family: "Poppins", sans-serif;
 }
 .title {
   font-family: "Poppins", sans-serif;
   color: rgb(228, 228, 228);
   font-size: 18px;
+}
+button{
+  cursor: pointer;
+  box-shadow: black;
 }
 /*
 button {

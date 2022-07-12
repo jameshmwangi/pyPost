@@ -20,6 +20,8 @@ distlib==0.3.4
 distro==1.4.0
 Django==4.0.4
 django-ckeditor==6.4.2
+django-crispy-forms==1.14.0
+django-environ==0.9.0
 django-js-asset==2.0.0
 django-tables2==2.4.1
 entrypoints==0.3
@@ -71,6 +73,7 @@ pyparted==3.11.2
 pyRFC3339==1.1
 python-apt==2.0.0+ubuntu0.20.4.6
 python-debian===0.1.36ubuntu1
+python-decouple==3.6
 python-magic==0.4.16
 python-xapp==2.2.1
 python-xlib==0.23
@@ -87,6 +90,7 @@ simplejson==3.16.0
 six==1.14.0
 soupsieve==1.9.5
 sqlparse==0.4.2
+stevedore==3.5.0
 systemd-python==234
 testresources==2.0.1
 tinycss2==1.0.2
@@ -98,6 +102,7 @@ Unidecode==1.1.1
 urllib3==1.25.8
 virtualenv==20.14.1
 virtualenv-clone==0.5.7
+virtualenvwrapper==4.8.4
 wadllib==1.3.3
 wakatime==13.1.0
 webencodings==0.5.1

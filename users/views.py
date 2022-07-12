@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from matplotlib.style import context
+
 from .forms import UserRegisterForm,ProfileUpdateForm,UserUpdateForm
 from django.contrib.auth.decorators import login_required
 
@@ -22,6 +22,10 @@ def register(request):
 
 @login_required
 def profile(request):
+    return render(request,'users/profile.html')
+
+
+def profile_update(request):
     if request.method=="POST":
         u_form= UserUpdateForm(request.POST,instance=request.user)
         p_form= ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile)
@@ -39,6 +43,4 @@ def profile(request):
         "u_form":u_form,
         "p_form":p_form
     }
-    return render(request,'users/profile.html',context)
-
-    
+    return render(request,'users/profile_update.html',context)

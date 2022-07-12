@@ -7,11 +7,15 @@
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div class="cardd">
-      <!-- <img src="img.jpg" alt="John" style="width:100%"> -->
+    <div class="cardd ">
+      
       <div class="m-b-25"> <img class="rounded-circle account-img" id="profile-img" src="{{ user.profile.image.url }}" class="img-radius" alt="User-Profile-Image"> </div>
 
-      <h1 id="profile-h1">{{user.username|title}}</h1>
+       <h1 id="profile-h1">{{user.first_name|title}} {{user.last_name|title}}</h1>
+        
+
+
+      <h1 id="profile-h1">@{{user.username|title}}</h1>
       <p class="title">{{user.email}}</p>
       <!-- <p>My Social Live  Below</p> -->
       <a href="#" id="auth-links"><i class="fa fa-dribbble"></i></a>
@@ -27,12 +31,12 @@
                 {{ p_form|crispy }}
             </fieldset>
 
-            <button class="btn btn-outline-info" type="submit">Update</button>
+          
         </form>
 
-      <p><button id="btn-profile"><a href="#" id="auth-links">
+      <p><button id="btn-profile"><a href="{%url 'profile-update'%}" id="auth-links">
         
         Update Profile
     </a></button></p>
-    </div>
+  </div>
 {% endblock content %}

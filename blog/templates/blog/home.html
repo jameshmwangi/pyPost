@@ -8,15 +8,17 @@
 <hr>
 
     <article class="media content-section">
-        <img class="rounded-circle article-img"  src="{{posts.authour.profile.image.url}}" alt="">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{posts.authour}}</a>
+        <div class="article-metadata"> <img class="rounded-circle article-img"  src="{{posts.authour.profile.image.url}}" alt="">
+        
+             post by {{posts.authour.first_name}} {{posts.authour.last_name}} <a class="mr-2" href="#">@{{posts.authour}}</a>
                 <small class="text-muted" >{{posts.date_posted}}</small>
 
             </div>
-            <h2> <a class="article-title" href="{% url 'blog-article' posts.pk %}">{{posts.title}}</a> </h2>
-            <p class="article-content" >{{posts.content}}</p>
+        <div class="media-body"> <h2> <a class="article-title" href="{% url 'blog-article' posts.pk %}">{{posts.title}}</a> </h2>
+            <p class="article-content" >{{posts.content|slice:":200"|safe}}</p>
+            <small>
+                <a class="btn btn-warning" href="{% url 'blog-article' posts.pk %}">Read More...</a>
+            </small>
 
 
 

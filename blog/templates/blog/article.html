@@ -22,7 +22,7 @@
             </div>
             <h2> <a class="article-title" href="#">{{posts.title}}</a> </h2>
             <hr>
-            <p class="article-content" >{{posts.content}}</p>
+            <p class="article-content" >{{posts.content|safe}}</p>
 
         </div>
         <a class="btn btn-warning" href="{%url 'blog-home'%}">Back</a>
