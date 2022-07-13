@@ -24,6 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('blog.urls')), 
 
+
+    #rest api
+    
+    path('api/auth/', user_views.ApiAuthentication.as_view(), name="authentication-view"),
+
     #Authentication
     path('register/', user_views.register, name="register"),
     path('profile/', user_views.profile, name="profile"),

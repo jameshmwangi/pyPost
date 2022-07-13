@@ -1,9 +1,17 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-
+from django.contrib.auth.models import User
 from .forms import UserRegisterForm,ProfileUpdateForm,UserUpdateForm
 from django.contrib.auth.decorators import login_required
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from rest_framework import status, generics, filters
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authtoken.models import Token
+from .serializers import *
+
 
 # Create your views here.
 def register(request):
@@ -44,3 +52,28 @@ def profile_update(request):
         "p_form":p_form
     }
     return render(request,'users/profile_update.html',context)
+
+class ApiAuthentication(generics.CreateAPIView):
+    serializer_class=LoginSerializer
+
+    def post(self,request):
+        username=request.data.get('username')
+        password=request.data.get('password')
+        user=User.objects.filter(username=username)
+        if not user:
+            return Response({'Validation_error ':'Invalid username or passwords'},status=status.HTTP_403_FORBIDDEN)
+        if user.first().check_password(password):
+            try:
+                token = Token.objects.create(user=user.first())
+            except:
+                 token = Token.objects.get(user=user.first())
+            return Response({'token':token.key},status=status.HTTP_200_OK)
+        else:
+            return Response({'Validation_error ':'Invalid username or password'},status=status.HTTP_403_FORBIDDEN)
+
+
+
+
+
+
+    

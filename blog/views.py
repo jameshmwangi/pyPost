@@ -1,12 +1,20 @@
+from email import message
 from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from requests import post, request
-
-from .models import Post
+#from requests import post, request
+from .models import Post 
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from rest_framework import status, generics, filters
+from rest_framework.permissions import IsAuthenticated
+from .serializers import *
+
 
 # def home(request):
 # context={
@@ -57,8 +65,7 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         return False
 
 class PostDeleteView(UserPassesTestMixin,DeleteView):
-    model=Post
-    
+    model=Post    
     context_object_name = 'posts'
     success_url='/'
 
@@ -68,3 +75,37 @@ class PostDeleteView(UserPassesTestMixin,DeleteView):
             return True
         return False
 
+class PostsView(generics.ListAPIView,generics.CreateAPIView): 
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+
+    def get(self,request):
+        user =request.user 
+        print(user)
+        queryset = Post.objects.all()
+        post_serializer=PostSerializer(queryset,many=True)
+        return Response(post_serializer.data,status=status.HTTP_200_OK)
+
+
+    def post(self,request):
+        serializer= CreatePostSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data,status=status.HTTP_201_CREATED)
+
+class EditPostsView(generics.UpdateAPIView,generics.DestroyAPIView):
+    authentication_classes=[TokenAuthentication]
+    permission_classes=[IsAuthenticated]
+
+    def update(self,request,id):
+        object_instance= Post.objects.get(id=id)
+        serializer=EditPostSerializer(object_instance,data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+    def delete(self,request,id):
+        object_instance= Post.objects.get(id=id)
+        object_instance.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

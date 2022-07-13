@@ -9,7 +9,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     title= models.CharField(max_length=200)
     content= RichTextField(blank=True, null=True)
-   # content=models.TextField()
+   # content=mmodels.TextField()
     date_posted=models.DateTimeField(default=timezone.now)
     authour=models.ForeignKey(User, on_delete=models.CASCADE)
 
