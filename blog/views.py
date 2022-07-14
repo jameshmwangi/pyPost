@@ -3,16 +3,15 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-#from requests import post, request
 from .models import Post 
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
-from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from rest_framework import status, generics, filters
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTTokenUserAuthentication
 from .serializers import *
 
 
@@ -76,7 +75,7 @@ class PostDeleteView(UserPassesTestMixin,DeleteView):
         return False
 
 class PostsView(generics.ListAPIView,generics.CreateAPIView): 
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [JWTTokenUserAuthentication]
     permission_classes = [IsAuthenticated]
 
 
@@ -95,7 +94,7 @@ class PostsView(generics.ListAPIView,generics.CreateAPIView):
         return Response(serializer.data,status=status.HTTP_201_CREATED)
 
 class EditPostsView(generics.UpdateAPIView,generics.DestroyAPIView):
-    authentication_classes=[TokenAuthentication]
+    authentication_classes=[JWTTokenUserAuthentication]
     permission_classes=[IsAuthenticated]
 
     def update(self,request,id):

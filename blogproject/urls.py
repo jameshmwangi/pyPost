@@ -27,7 +27,7 @@ urlpatterns = [
 
     #rest api
     
-    path('api/auth/', user_views.ApiAuthentication.as_view(), name="authentication-view"),
+    path('fetch-auth-token/', user_views.ApiAuthentication.as_view(), name="authentication-view"),
 
     #Authentication
     path('register/', user_views.register, name="register"),
