@@ -1,6 +1,6 @@
 body {
     
-  background-color: rgb(56,56,56); 
+  background-color: rgb(189, 182, 182); 
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -13,17 +13,13 @@ h5,
 h6,
 p {
   color: #444444;
-  font-family: "Poppins", sans-serif;
+        font-family: 'Roboto', sans-serif;
 }
 
 ul {
   margin: 0;
 }
 
-.bg-steel {
-  
-  background: linear-gradient(270deg, rgb(49, 0, 33) 0%, rgb(46, 0, 119) 100%);
-}
 
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
@@ -39,21 +35,12 @@ ul {
 
 .content-section {
   background: #ffffff;
-  /* border-radius: 20px; */
-  padding: 10px 20px;
-  /* border: 1px solid #dddddd; */
+  padding: 10px 20px;  
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
-/*.article-title {
-  color: #444444;
-}
 
-a .article-title:hover {
-  color: #9900ff;
-  text-decoration: none;
-} */
 
 .article-content {
   white-space: pre-line;
@@ -66,14 +53,14 @@ a .article-title:hover {
 }
 
 .article-metadata {
-  font-family: "Poppins", sans-serif;
+        font-family: 'Roboto', sans-serif;
   padding-bottom: 1px;
   margin-bottom: 4px;
   font-size: 13px;
   border-bottom: 1px solid #e3e3e3;
 }
 
-.article-metadata a:hover {
+.article-metadata  {
   color: #333;
   text-decoration: none;
 }
@@ -93,12 +80,12 @@ a .article-title:hover {
 
 
 #auth-links {
-  font-family: "Poppins", sans-serif;
+        font-family: 'Roboto', sans-serif;
   position: relative;
   display: inline-block;
   padding: 12px 3px;
   margin: 10px 0;
-  color: #03e9f4;
+  color: #000000;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
@@ -108,11 +95,11 @@ a .article-title:hover {
 }
 #auth-links:hover {
   font-weight: bold;
-  background: #03e9f4;
+  background: #1ad114;
   text-decoration: none;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 200px #03e9f4;
+  box-shadow: 0 0 5px #07f763, 0 0 25px #07f763, 0 0 50px #07f763,
+    0 0 200px #07f763;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
@@ -127,10 +114,10 @@ a .article-title:hover {
 }
 #profile-h1 {
   color: rgb(0, 0, 0);
-  font-family: "Poppins", sans-serif;
+        font-family: 'Roboto', sans-serif;
 }
 .title {
-  font-family: "Poppins", sans-serif;
+        font-family: 'Roboto', sans-serif;
   color: rgb(228, 228, 228);
   font-size: 18px;
 }
@@ -138,39 +125,20 @@ button{
   cursor: pointer;
   box-shadow: black;
 }
-/*
-button {
-  font-family: "Poppins", sans-serif;
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  transition: 1s;
-  background: linear-gradient(
-    270deg,
-    rgb(247, 0, 255) 0%,
-    rgb(98, 0, 255) 100%
-  );
-}
- a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
+
 button:hover,
 a:hover {
-  opacity: 0.7;
-  background-color: rgb(3, 1, 5);
-} */
+  opacity: 0.7;  
+  text-decoration: none;  
+  box-shadow: 0 0 5px #07f763, 0 0 25px #07f763, 0 0 50px #07f763, 0 0 200px #07f763;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+} 
 
 #profile-img {
   margin-top: 20px;
   box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);
   border-radius: 50px;
+
 }
+
+

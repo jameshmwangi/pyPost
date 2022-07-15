@@ -1,4 +1,4 @@
-from email import message
+from django.db.models import Q
 from django.shortcuts import render
 
 # Create your views here.
@@ -14,15 +14,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTTokenUserAuthentication
 from .serializers import *
 
-
-# def home(request):
-# context={
-# 'posts':Post.objects.all()
-# }
-#  return render(request,'blog/home.html', context)
-
-# def about(request):
-#   return render(request,'blog/about.html', {'title':'About Page'})
 
 class PostListView(ListView):
     model = Post
@@ -45,6 +36,7 @@ class PostCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form) :
         form.instance.authour=self.request.user
         return super().form_valid(form)
+
 
     
 
@@ -73,6 +65,7 @@ class PostDeleteView(UserPassesTestMixin,DeleteView):
         if self.request.user==post.authour:
             return True
         return False
+
 
 class PostsView(generics.ListAPIView,generics.CreateAPIView): 
     authentication_classes = [JWTTokenUserAuthentication]
@@ -108,3 +101,7 @@ class EditPostsView(generics.UpdateAPIView,generics.DestroyAPIView):
         object_instance= Post.objects.get(id=id)
         object_instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+def search(request):
+    query=request.GET.get('query','')
+    posts=Post.objects.filter(Q(title__icontains=query)|Q(content__icontains=query))
+    return render(request,'blog/search.html',{'posts':posts, 'query':query} )

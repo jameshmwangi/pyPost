@@ -1,7 +1,7 @@
 {%extends 'blog/base.html'%}
    
     {%block content%}
-    
+    <h1 class="media content-section"> Search Results for "{{query}}"</h1>
     {%for posts in posts%}
 
 
@@ -14,7 +14,7 @@
                 <small class="text-muted" >{{posts.date_posted}}</small>
 
             </div>
-        <div class="media-body"> <h2> <a href="{% url 'blog-article' posts.pk %}">{{posts.title}}</a> </h2>
+        <div class="media-body"> <h2> <a class="article-title" href="{% url 'blog-article' posts.pk %}">{{posts.title}}</a> </h2>
             <p class="article-content" >{{posts.content|slice:":200"|safe}}</p>
             <small>
                 <a class="btn btn-warning" href="{% url 'blog-article' posts.pk %}">Read More...</a>
@@ -25,5 +25,7 @@
         </div>
 
     </article>
+    {%empty%}
+    <p class="media content-section"> No search results , Please try using other keywords...</p>
     {%endfor%}
     {%endblock content%}
