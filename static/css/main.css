@@ -1,1 +1,142 @@
+body {
+  background-color: rgb(189, 182, 182); 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #444444;
+        font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  margin: 0;
+}
+
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;  
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+        font-family: 'Roboto', sans-serif;
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata  {
+  color: #333;
+  text-decoration: none;
+}
+
+
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+#auth-links {
+        font-family: 'Roboto', sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 12px 3px;
+  margin: 10px 0;
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 5px;
+}
+#auth-links:hover {
+  font-weight: bold;
+  background: #1ad114;
+  text-decoration: none;
+  color: #050801;
+  box-shadow: 0 0 5px #07f763, 0 0 25px #07f763, 0 0 50px #07f763,
+    0 0 200px #07f763;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.cardd {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.849);
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  border-radius: 30px;
+  
+
+}
+#profile-h1 {
+  color: rgb(0, 0, 0);
+        font-family: 'Roboto', sans-serif;
+}
+.title {
+        font-family: 'Roboto', sans-serif;
+  color: rgb(228, 228, 228);
+  font-size: 18px;
+}
+button{
+  cursor: pointer;
+  box-shadow: black;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.7;  
+  text-decoration: none;  
+  box-shadow: 0 0 5px #07f763, 0 0 25px #07f763, 0 0 50px #07f763, 0 0 200px #07f763;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+} 
+
+#profile-img {
+  margin-top: 20px;
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);
+  border-radius: 50px;
+
+}
 
