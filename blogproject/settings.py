@@ -17,6 +17,7 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'rest_framework',
     'rest_framework_simplejwt',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -195,3 +197,33 @@ EMAIL_HOST_USER=config('USERNAME')
 EMAIL_HOST_PASSWORD=config('PASSWORD')
 DEFAULT_FROM_EMAIL=EMAIL
 EMAIL_PORT=config('PORT')
+
+PWA_APP_NAME = 'PyPost'
+PWA_APP_DESCRIPTION = "PyPost PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+	{
+		'src': 'static/images/android-chrome-512x512.png',
+		'sizes': '512x512'
+	}
+]
+PWA_APP_ICONS_APPLE = [
+	{
+		'src': 'static/images/apple-touch-icon.png',
+		'sizes': '180x180'
+	}
+]
+PWA_APP_SPLASH_SCREEN = [
+	{
+		'src': 'static/images/android-chrome-512x512.png',
+		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+	}
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
